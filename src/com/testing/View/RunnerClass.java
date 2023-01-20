@@ -1,11 +1,13 @@
 package com.testing.View;
 
 import com.testing.Controller.InvoiceActionListener;
+import com.testing.Model.InvoiceHeader;
 import java.util.Scanner;
 
 public class RunnerClass {
     public static void main(String args[]) {
         InvoiceActionListener i = new InvoiceActionListener();
+        InvoiceHeader invoiceHeader = new InvoiceHeader();
         Scanner sc = new Scanner(System.in);
         int selectedOption;
         while(true){
@@ -19,6 +21,7 @@ public class RunnerClass {
             i.actionSelected(selectedOption);
             System.out.println("Invoice Generated!");
         }
+
 
     }
 }

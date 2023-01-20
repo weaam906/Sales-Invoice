@@ -13,6 +13,7 @@ public class InvoiceHeader{
     private String invoiceDate;
     private String customerName;
     private ArrayList<InvoiceLine>invoiceLines;
+    private ArrayList<InvoiceHeader> invoiceHeaders;
     private DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     /*Default constructor*/
     public InvoiceHeader() {
@@ -52,12 +53,17 @@ public class InvoiceHeader{
     public void setInvoiceLines(ArrayList<InvoiceLine> invoiceLines) {
         this.invoiceLines = invoiceLines;
     }
+    public void setInvoiceHeaders(ArrayList<InvoiceHeader> invoiceHeaders) {this.invoiceHeaders = invoiceHeaders;}
 
     /*Getters*/
     public int getInvoiceNum() {return invoiceNum;}
     public static int getInvoiceID(){return invoiceID;}
     public Date getInvoiceDate() throws ParseException {return dateFormat.parse(invoiceDate);}
     public String getCustomerName() {return customerName;}
+    public ArrayList<InvoiceHeader> getInvoiceHeaders() {
+        if(invoiceHeaders ==null){invoiceHeaders = new ArrayList<>();}
+        return invoiceHeaders;
+    }
     public ArrayList<InvoiceLine> getInvoiceLines() {
         if(invoiceLines == null) {invoiceLines = new ArrayList<>();}
         return invoiceLines;
