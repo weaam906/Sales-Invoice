@@ -6,33 +6,47 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class InvoiceHeader {
+public class InvoiceHeader{
     /*Private data*/
     private int invoiceNum;
-    private Date invoiceDate;
+    private static int invoiceID;
+    private String invoiceDate;
     private String customerName;
     private ArrayList<InvoiceLine>invoiceLines;
     private DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
     /*Default constructor*/
-    public InvoiceHeader() {}
+    public InvoiceHeader() {
+        invoiceID++;
+    }
 
-    public InvoiceHeader(int invoiceNum, Date invoiceDate, String customerName) {
+    public InvoiceHeader(int invoiceNum, String invoiceDate, String customerName) {
         this.invoiceNum = invoiceNum;
         this.invoiceDate = invoiceDate;
         this.customerName = customerName;
+        invoiceID++;
     }
 
     /*Setters*/
-    public void setInvoiceNum(int invoiceNum) {this.invoiceNum = invoiceNum;}
-    public void setInvoiceDate(Date invoiceDate){
+    public void setInvoiceNum(int invoiceNum) {
         try {
-            this.invoiceDate = new SimpleDateFormat().parse(invoiceDate.toString());
-            //this.invoiceDate = invoiceDate;
-        } catch (ParseException e)
-        {
+            if (invoiceNum >0 && invoiceNum %1 == 0) {
+                this.invoiceNum = invoiceNum;
+            }
+        }catch (Exception e){
+            System.out.println("Wrong number, try again");
+            System.out.println(e.getMessage());
+        }
+    }
+    public void setInvoiceDate(String invoiceDate){
+        Date date2=null;
+        try {
+            //Parsing the String
+            date2 = dateFormat.parse(invoiceDate);
+            this.invoiceDate = invoiceDate;
+        } catch (ParseException e) {
             e.printStackTrace();
         }
+        System.out.println(date2);
     }
     public void setCustomerName(String customerName) {this.customerName = customerName;}
     public void setInvoiceLines(ArrayList<InvoiceLine> invoiceLines) {
@@ -41,7 +55,8 @@ public class InvoiceHeader {
 
     /*Getters*/
     public int getInvoiceNum() {return invoiceNum;}
-    public Date getInvoiceDate() {return invoiceDate;}
+    public static int getInvoiceID(){return invoiceID;}
+    public Date getInvoiceDate() throws ParseException {return dateFormat.parse(invoiceDate);}
     public String getCustomerName() {return customerName;}
     public ArrayList<InvoiceLine> getInvoiceLines() {
         if(invoiceLines == null) {invoiceLines = new ArrayList<>();}
@@ -94,11 +109,12 @@ public class InvoiceHeader {
      *  Inputs: N/A                                   *
      *  Outputs: String of header data                *
      * ********************************************** */
-    public String saveHeaderData(){
+    public String saveHeaderData() throws ParseException {
         return " " + getInvoiceNum() + ",\n"
                 + dateFormat.format(getInvoiceDate()) + ",\n"
                 + getCustomerName()+".";
     }
+
 }
 
 

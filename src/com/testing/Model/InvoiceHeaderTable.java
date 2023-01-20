@@ -3,6 +3,7 @@ package com.testing.Model;
 import com.build.TablesModelAbstractClass;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class InvoiceHeaderTable extends TablesModelAbstractClass {
      * In this method, you get a certain header content of certain line by index *
      * ************************************************************************* */
     @Override
-    public Object getValueAt(int rowIndex,int columnIndex) {
+    public Object getValueAt(int rowIndex,int columnIndex) throws ParseException {
         InvoiceHeader headerRow = invoiceHeaders.get(rowIndex);
         switch (columnIndex){
             case 0: return headerRow.getInvoiceNum();
