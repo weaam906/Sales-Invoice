@@ -77,9 +77,10 @@ public class InvoiceHeader{
      * ********************************************************************* */
     @Override
     public String toString() {
-        String headerContent = "\tInvoiceHeader\t\n"+
-                "Invoice Number=" + invoiceNum +",\n"+
-                "Invoice Date=" + invoiceDate +",\n"+
+        String headerContent =
+                //"\tInvoiceHeader\t\n"+
+                "Invoice Number=" + invoiceNum +", "+
+                "Invoice Date=" + invoiceDate +", "+
                 "Customer Name=" + customerName +".";
         for(InvoiceLine line: getInvoiceLines()){
             headerContent += "\n\t" +line;
