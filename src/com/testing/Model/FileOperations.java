@@ -11,7 +11,7 @@ public class FileOperations {
 
 public ArrayList<InvoiceHeader> readHeaderFile(){
         try {
-            file = new FileInputStream("D:\\My Data\\work\\FWD\\Sales Invoice\\src");
+            file = new FileInputStream("D:\\My Data\\work\\FWD\\Sales Invoice\\src\\InvoiceHeader.csv");
             int size = file.available();
             for(int i=0;i<size;i++){
                 file.read();
@@ -26,6 +26,8 @@ public ArrayList<InvoiceHeader> readHeaderFile(){
     return invoiceHeaders;
 }
 
-public void writeHeaderFile(ArrayList<InvoiceHeader> invoiceHeaders){}
+public void writeHeaderFile(ArrayList<InvoiceHeader> invoiceHeaders){
+
+}
 
 }

@@ -41,8 +41,8 @@ public class InvoiceLine {
     @Override
     public String toString() {
         return  "\tInvoiceLines\t\n" +
-                "itemName=" + itemName + ",\n"+
-                " itemPrice=" + itemPrice + ",\n"+
+                "itemName=" + itemName + ", "+
+                " itemPrice=" + itemPrice + ", "+
                 " itemCount=" + itemCount + ".";
     }
 
