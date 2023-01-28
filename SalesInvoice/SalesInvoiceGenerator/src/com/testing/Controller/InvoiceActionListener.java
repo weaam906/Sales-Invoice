@@ -22,11 +22,11 @@ import java.util.List;
 public class InvoiceActionListener extends Component {
     double total = 0.0;
     double price=0.0;
-    String headerFilePath="D://My Data//work//FWD//Sales Invoice//src//InvoiceHeader.csv";
-    String lineFilePath="D://My Data//work//FWD//Sales Invoice//src//InvoiceLine.csv";
+    String headerFilePath="SalesInvoice/Files/InvoiceHeader.csv";
+    String lineFilePath="SalesInvoice/Files/InvoiceLine.csv";
     InvoiceHeader invoiceHeader = new InvoiceHeader();
-    ArrayList<InvoiceLine> invoiceLines = new ArrayList<InvoiceLine>();
-    ArrayList<InvoiceHeader> invoiceHeaders = new ArrayList<InvoiceHeader>();
+    ArrayList<InvoiceLine> invoiceLines = new ArrayList<>();
+    ArrayList<InvoiceHeader> invoiceHeaders = new ArrayList<>();
     int n = invoiceHeader.getInvoiceNum();
 
 

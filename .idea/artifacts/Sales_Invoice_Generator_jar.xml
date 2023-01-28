@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Sales-Invoice-Generator:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Sales_Invoice_Generator_jar</output-path>
+    <output-path>$PROJECT_DIR$/out</output-path>
     <root id="archive" name="Sales-Invoice-Generator.jar">
       <element id="module-output" name="Sales-Invoice-Generator" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/opencsv/opencsv/4.1/opencsv-4.1.jar" path-in-jar="/" />
